@@ -1,17 +1,11 @@
 ### Información - 2da Evaluación
 _____________________
-**Estudiante:**
-- Fernando Obreque Ortíz
-
-**Docente:**
-- Juan José Mir Castillo
-
-**Asignatura:**
-- Aplicaciones Móviles para IoT
-
-**Sección:**
-- IEI 170 - INACAP
-
+```zsh
+[+] Estudiante:   Fernando Obreque Ortíz
+[+] Docente:      Juan José Mir Castillo
+[+] Asignatura:   Aplicaciones Móviles para IoT
+[+] Sección:      IEI 170 - INACAP
+```
 _____________________
 ### Ruta de los archivos más importantes
 
