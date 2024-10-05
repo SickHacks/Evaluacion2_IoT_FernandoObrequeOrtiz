@@ -2,7 +2,9 @@
 _____________________
 ### Estudiante
 - Fernando Obreque Ortíz
+### Docente
+- Juan José Mir Castillo
 ### Asignatura
 - Aplicaciones Móviles para IoT
 ### Sección
-- IEI 170 - Inacap
+- IEI 170 - INACAP
