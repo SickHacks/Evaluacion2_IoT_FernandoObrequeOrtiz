@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private boolean isAlertDialogShowing = false; // Flag para controlar el AlertDialog
     private long lastToastTime = 0; // Tiempo del último Toast
-    private static final long TOAST_DEBOUNCE_TIME = 4000; // Tiempo en milisegundos para debounce
+    private static final long TOAST_DEBOUNCE_TIME = 5000; // Tiempo en milisegundos para debounce
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         return true; // Todos los campos son válidos
     }
 
-    // Función que valida el RUT chileno sin puntos y con guion
+    // Función que valida el RUT sin puntos y con guion
     private boolean esRutValido(String rut) {
         // Verificar que contenga solo un guion
         if (!rut.contains("-") || rut.chars().filter(ch -> ch == '-').count() != 1) {
