@@ -1,13 +1,13 @@
-### Información - 2da Evaluación
+#### Información - 2da Evaluación
 _____________________
-```zsh
+```bash
 [+] Estudiante:   Fernando Obreque Ortíz
 [+] Docente:      Juan José Mir Castillo
 [+] Asignatura:   Aplicaciones Móviles para IoT
 [+] Sección:      IEI 170 - INACAP
 ```
 _____________________
-### Ruta de los archivos más importantes
+#### Ruta de los archivos más importantes
 
 - **MainActivity.java**  
   [app/src/main/java/com/example/practica1/MainActivity.java](app/src/main/java/com/example/practica1/MainActivity.java)
