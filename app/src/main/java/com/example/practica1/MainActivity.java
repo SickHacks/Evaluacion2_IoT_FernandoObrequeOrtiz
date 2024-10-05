@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Button btnGrabar;
     private Button btnCerrarAplicacion;
     private ScheduledExecutorService scheduler;
-
     private SensorManager sensorManager;
     private Sensor accelerometer;
 

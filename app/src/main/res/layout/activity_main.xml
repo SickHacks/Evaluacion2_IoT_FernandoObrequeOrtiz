@@ -1,135 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <!-- TITULO -->
-    <TextView
-        android:layout_marginTop="40dp"
-        android:id="@+id/tvTitulo"
+    <RelativeLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Incidentes TI - Inacap"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:padding="16dp"
-        android:layout_alignParentTop="true" />
+        android:layout_height="wrap_content">
 
-    <!-- FECHA Y HORA -->
-    <TextView
-        android:id="@+id/fechaHora"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="13/09/2024 | 13:00"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:padding="16dp"
-        android:layout_below="@id/tvTitulo"
-        android:layout_marginTop="16dp" />
+<!--El RelativeLayout está envuelto en un ScrollView
+ para poder scrollear con el teclado del celular desplegado-->
 
-    <!-- NOMBRE -->
-    <EditText
-        android:id="@+id/nombreUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:layout_below="@id/fechaHora"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp" />
+        <!-- TITULO -->
+        <TextView
+            android:layout_marginTop="40dp"
+            android:id="@+id/tvTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Incidentes TI - Inacap"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_alignParentTop="true" />
 
-    <!-- RUT -->
-    <EditText
-        android:id="@+id/rutUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Rut (sin puntos, con guion)"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:layout_below="@id/nombreUsuario"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp" />
+        <!-- FECHA Y HORA -->
+        <TextView
+            android:id="@+id/fechaHora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="13/09/2024 | 13:00"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_below="@id/tvTitulo"
+            android:layout_marginTop="16dp" />
 
-    <!-- AVISO SPINNER -->
-    <TextView
-        android:id="@+id/avisoSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Seleccione un laboratorio"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:padding="16dp"
-        android:layout_below="@id/rutUsuario"
-        android:layout_marginTop="16dp" />
+        <!-- NOMBRE USUARIO-->
+        <EditText
+            android:id="@+id/nombreUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:layout_below="@id/fechaHora"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp" />
 
-    <!-- LISTA -->
-    <Spinner
-        android:id="@+id/spinnerLaboratorios"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:layout_below="@id/avisoSpinner"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:entries="@array/laboratorios" />
+        <!-- RUT USUARIO-->
+        <EditText
+            android:id="@+id/rutUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="RUT (sin puntos y con guion)"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:layout_below="@id/nombreUsuario"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp" />
 
-    <!-- DESCRIPCION -->
-    <EditText
-        android:id="@+id/editTextDescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Describa el problema"
-        android:inputType="textMultiLine"
-        android:minLines="4"
-        android:gravity="top"
-        android:padding="8dp"
-        android:layout_below="@id/spinnerLaboratorios"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp" />
+        <!-- INSTRUCCION LISTA SPINNER LABORATORIOS -->
+        <TextView
+            android:id="@+id/avisoSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccione un laboratorio"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_below="@id/rutUsuario"
+            android:layout_marginTop="16dp" />
 
-    <!-- BOTON / GRABAR -->
-    <Button
-        android:id="@+id/botonGuardar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Grabar"
-        android:layout_below="@id/editTextDescripcion"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp" />
+        <!-- LISTA SPINNER DE LABORATORIOS-->
+        <Spinner
+            android:id="@+id/spinnerLaboratorios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:layout_below="@id/avisoSpinner"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:entries="@array/laboratorios" />
 
-    <!-- BOTON / CERRAR -->
-    <Button
-        android:id="@+id/botonCerrarApp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cerrar"
-        android:layout_below="@id/botonGuardar"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp" />
+        <!-- DESCRIPCION -->
+        <EditText
+            android:id="@+id/editTextDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Describa el problema"
+            android:inputType="textMultiLine"
+            android:minLines="4"
+            android:gravity="top"
+            android:padding="8dp"
+            android:layout_below="@id/spinnerLaboratorios"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp" />
 
-    <!-- ASSET IMAGEN -->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/botonCerrarApp"
-        android:layout_marginTop="16dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/waves" />
+        <!-- BOTON / GRABAR INCIDENTE-->
+        <Button
+            android:id="@+id/botonGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Grabar"
+            android:layout_below="@id/editTextDescripcion"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp" />
 
-</RelativeLayout>
+        <!-- BOTON / CERRAR APLICACION -->
+        <Button
+            android:id="@+id/botonCerrarApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cerrar"
+            android:layout_below="@id/botonGuardar"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp" />
+
+        <!-- ASSET IMAGEN -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/botonCerrarApp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/waves" />
+
+    </RelativeLayout>
+</ScrollView>
