@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- TITULO -->
+    <TextView
+        android:layout_marginTop="40dp"
+        android:id="@+id/tvTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Incidentes TI - Inacap"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_alignParentTop="true" />
+
+    <!-- FECHA Y HORA -->
+    <TextView
+        android:id="@+id/fechaHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="13/09/2024 | 13:00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_below="@id/tvTitulo"
+        android:layout_marginTop="16dp" />
+
+    <!-- NOMBRE -->
+    <EditText
+        android:id="@+id/nombreUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:layout_below="@id/fechaHora"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
+
+    <!-- RUT -->
+    <EditText
+        android:id="@+id/rutUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Rut (sin puntos, con guion)"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:layout_below="@id/nombreUsuario"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
+
+    <!-- AVISO SPINNER -->
+    <TextView
+        android:id="@+id/avisoSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccione un laboratorio"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_below="@id/rutUsuario"
+        android:layout_marginTop="16dp" />
+
+    <!-- LISTA -->
+    <Spinner
+        android:id="@+id/spinnerLaboratorios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:layout_below="@id/avisoSpinner"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:entries="@array/laboratorios" />
+
+    <!-- DESCRIPCION -->
+    <EditText
+        android:id="@+id/editTextDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Describa el problema"
+        android:inputType="textMultiLine"
+        android:minLines="4"
+        android:gravity="top"
+        android:padding="8dp"
+        android:layout_below="@id/spinnerLaboratorios"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
+
+    <!-- BOTON / GRABAR -->
+    <Button
+        android:id="@+id/botonGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Grabar"
+        android:layout_below="@id/editTextDescripcion"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp" />
+
+    <!-- BOTON / CERRAR -->
+    <Button
+        android:id="@+id/botonCerrarApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar"
+        android:layout_below="@id/botonGuardar"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp" />
+
+    <!-- ASSET IMAGEN -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/botonCerrarApp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/waves" />
+
+</RelativeLayout>

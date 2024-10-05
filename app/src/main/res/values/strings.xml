@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Evaluación 2</string>
+
+    <!-- LABORATORIOS PARA LA LISTA SPINNER -->
+    <string-array name="laboratorios">
+        <item>C2</item>
+        <item>LINF</item>
+        <item>LEICA</item>
+        <item>LNET</item>
+        <item>LTEL</item>
+    </string-array>
+</resources>
