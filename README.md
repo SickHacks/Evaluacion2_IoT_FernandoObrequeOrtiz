@@ -4,7 +4,13 @@
 [+] Docente:      Juan José Mir Castillo
 [+] Asignatura:   Aplicaciones Móviles para IoT
 [+] Sección:      IEI 170 - INACAP
+-------------------------------------------------------
+Funcionalidades adicionales del programa
+- Botón cerrar aplicación.
+- Responsividad, incluso en horizontal.
+- Se puede usar scroll, incluso con teclado desplegado.
 ```
+
 ### Ruta de los archivos más importantes
 - **MainActivity.java**  
 [app/src/main/java/com/example/practica1/MainActivity.java](app/src/main/java/com/example/practica1/MainActivity.java)
