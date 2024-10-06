@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private SensorManager sensorManager;
     private Sensor accelerometer;
 
-    private boolean isAlertDialogShowing = false; // Flag para controlar el AlertDialog
-    private long lastToastTime = 0; // Tiempo del último Toast
+    private boolean isAlertDialogShowing = false;
+    private long lastToastTime = 0;
     private static final long TOAST_DEBOUNCE_TIME = 5000; // Tiempo en milisegundos para debounce
 
     @Override
@@ -62,10 +62,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         btnCerrarAplicacion = findViewById(R.id.botonCerrarApp);
 
         iniciarActualizacionHora();
-
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
-        // Inicializar el sensor
+
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         List<Sensor> sensors = sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);
         if (sensors.size() > 0) {
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         btnCerrarAplicacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Cierra la actividad actual
+                finish();
             }
         });
     }
@@ -100,10 +99,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onPause() {
         super.onPause();
-        sensorManager.unregisterListener(this); // Desregistrar el listener
+        sensorManager.unregisterListener(this);
     }
 
-    // Método para validar los campos
+    // Validación de campos
     private boolean validarCampos() {
         String nombre = editTextNombre.getText().toString().trim();
         String rut = editTextRut.getText().toString().trim();
@@ -125,12 +124,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             mostrarToast("Por favor, ingrese una descripción.");
             return false;
         }
-        return true; // Todos los campos son válidos
+        return true;
     }
 
-    // Función que valida el RUT sin puntos y con guion
+    // Función para validar RUT
     private boolean esRutValido(String rut) {
-        // Verificar que contenga solo un guion
+
         if (!rut.contains("-") || rut.chars().filter(ch -> ch == '-').count() != 1) {
             return false;
         }
@@ -141,19 +140,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
 
         String rutBody = rutParts[0];
-        String dv = rutParts[1].toUpperCase(); // Convertir a mayúsculas para comparar con 'K'
+        String dv = rutParts[1].toUpperCase();
 
-        // Validar que el cuerpo del RUT solo tenga números
         if (!rutBody.matches("\\d+")) {
             return false;
         }
 
-        // Validar que el dígito verificador sea un número o 'K'
         if (!dv.matches("\\d|K")) {
             return false;
         }
 
-        // Calcular dígito verificador esperado
         int suma = 0;
         int multiplicador = 2;
 
@@ -175,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         return dv.equals(dvEsperado);
     }
 
-    // Función para iniciar la actualización de la hora cada minuto
+    // La hora cambia cada minuto
     private void iniciarActualizacionHora() {
         scheduler = Executors.newSingleThreadScheduledExecutor();
         scheduler.scheduleWithFixedDelay(new Runnable() {
@@ -203,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        // Verificar si el eje Y es mayor a 8
+        // Se verifica que Y es mayor a 9
         if (event.values[1] > 9 && !isAlertDialogShowing) {
             if (validarCampos()) {
                 mostrarConfirmacionGuardar();
@@ -213,12 +209,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Este método puede permanecer vacío
     }
 
-    // Método para mostrar el AlertDialog de confirmación
     private void mostrarConfirmacionGuardar() {
-        isAlertDialogShowing = true; // Establecer el flag a true
+        isAlertDialogShowing = true;
 
         new AlertDialog.Builder(MainActivity.this)
                 .setTitle("Confirmar Guardar")
@@ -226,19 +220,19 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         mostrarToast("DATOS GRABADOS\n¡¡¡ES INCREÍBLE!!!");
-                        isAlertDialogShowing = false; // Restablecer el flag al cerrar el dialog
+                        isAlertDialogShowing = false;
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        isAlertDialogShowing = false; // Restablecer el flag al cerrar el dialog
+                        isAlertDialogShowing = false;
                     }
                 })
                 .show();
     }
 
-    // Método para mostrar Toast con debounce
+    // Método para mostrar Toast con Debounce
     private void mostrarToast(String message) {
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastToastTime > TOAST_DEBOUNCE_TIME) {

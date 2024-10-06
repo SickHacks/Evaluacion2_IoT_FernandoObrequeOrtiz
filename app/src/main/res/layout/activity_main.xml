@@ -22,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Incidentes TI - Inacap"
+            android:textColor="#B69BFF"
             android:textSize="30sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -43,6 +44,7 @@
 
         <!-- NOMBRE USUARIO-->
         <EditText
+
             android:id="@+id/nombreUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,6 +84,7 @@
 
         <!-- LISTA SPINNER DE LABORATORIOS-->
         <Spinner
+
             android:id="@+id/spinnerLaboratorios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
